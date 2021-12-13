@@ -17,27 +17,17 @@
     <h5 class="card-title">Nombre: {{ $portafolio->nombre }}</h5>
     <h5 class="card-title">Descripción: {{ $portafolio->descripcion }}</h5>
     <h5 class="card-title">Categoría: {{ $portafolio->categoria }}</h5>
-    <h5 class="card-title">Imagen: {{ $portafolio->imagen }}</h5>
     <h5 class="card-title">Vídeo: {{ $portafolio->url }}</h5>
+    <h5 class="card-title">Imagen:</h5>
+    <img class="img-fluid img-thumbnail" src="/storage/{{$portafolio->imagen }}" alt="img-proyecto" width="200" height="200">
+    <br>
+    <br>
     <a href="{{route('edit',$portafolio)}}" class="btn btn-success btn-sm" >Actualizar</a>
-    <form action="{{route('destroy',$portafolio)}}" method="POST" style="display: inline;" onsubmit="return confirmation()">
+    <form action="{{route('destroy',$portafolio)}}" method="POST" style="display: inline;">
         @csrf
         @method('DELETE')
-        <button class="btn btn-danger btn-sm">Eliminar</button>
-        <script type="text/javascript">
-            function confirmation()
-            {
-                
-                if(confirm("¿Estás seguro de eliminar el registro?")){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-                
-                
-            }
-        </script>
+        <button class="btn btn-danger btn-sm" onclick="return confirm('Estás seguro que deseas eliminar el registro')">Eliminar</button>
     </form>
     <hr>
-@endsection
+
+    @endsection

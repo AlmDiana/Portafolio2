@@ -11,59 +11,40 @@
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('update',$portafolio)}}" method="POST">
+                    <form action="{{route('update',$portafolio)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-
-
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Nombre</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nombre" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->nombre}}">
                             </div>
                         </div>
-                        <br>
-
-
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Descripción</label>
                             <div class="col-sm-10">
                             <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3" >{{$portafolio->descripcion}}</textarea>
                             </div>
                         </div>
-                        <br>
-
-
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Categoría</label>
                             <div class="col-sm-10">
                                 <input type="text" name="categoria" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->categoria}}">
                             </div>
                         </div>
-                        <br>
-
-
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Imagen</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="imagen" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->imagen}}">
+                            <div class="input-group col-sm-10">
+                                <input type="file" class="form-control" id="inputGroupFile01" name="imagen">
                             </div>
                         </div>
-                        <br>
-
-
                         <div class="form-group row">
                             <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Vídeo</label>
                             <div class="col-sm-10">
-                                <input type="text" name="video"  class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->url}}">
+                                <input type="text" name="video" class="form-control form-control-sm" id="colFormLabelSm" value="{{$portafolio->url}}">
                             </div>
                         </div>
-                        <br>
-
-
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Actualizar</button>
-
-
                     </form>
                 </div>
             </div>
@@ -72,4 +53,4 @@
     <br>
 
 
-@endsection
+    @endsection

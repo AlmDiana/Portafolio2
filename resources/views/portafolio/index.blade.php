@@ -13,17 +13,24 @@
         </div>
     </div>
     <br>
-
-    @forelse ($portafolios as $portafolio)
-    <h5 class="card-title">Nombre: {{ $portafolio->nombre }}</h5>
-    <h5 class="card-title">Descripción: {{ $portafolio->descripcion }}</h5>
-    <h5 class="card-title">Categoría: {{ $portafolio->categoria }}</h5>
-    <h5 class="card-title">Imagen: {{ $portafolio->imagen }}</h5>
-    <h5 class="card-title">Vídeo: {{ $portafolio->url }}</h5>
-    <a href="{{route('show',$portafolio)}}" class="btn btn-primary btn-sm">Más información</a>
-    <hr>
+    <div class="container text-center d-flex flex-row flex-wrap justify-content-center ">
+        @forelse ($portafolios as $portafolio)
+        <div class="card" style="width: 18rem;">
+            <img src="/storage/{{$portafolio->imagen }}" class="card-img-top" alt="..." width="200" height="200">
+            <div class="card-body">
+                <p class="card-title font-weight-bold">{{ $portafolio->nombre }}</p>
+                <h5 class="card-title text-truncate">{{ $portafolio->descripcion }}</h5>
+                <span class="badge bg-success ">Categoría: {{ $portafolio->categoria }}</span>
+                <br>
+                <br>
+                <a href="{{route('show',$portafolio)}}" class="btn btn-primary btn-lg btn-block btn-sm">Más información</a>
+            </div>
+        </div>
+        <hr>
     @empty
-    <p>No Existen proyectos</p>
+        <p>No Existen proyectos</p>
     @endforelse
-
+    
+    </div>
+</div>
 @endsection
